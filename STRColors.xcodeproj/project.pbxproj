@@ -14,6 +14,8 @@
 		232620A51B1A3D5F00499DC6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 232620A41B1A3D5F00499DC6 /* Images.xcassets */; };
 		232620A81B1A3D5F00499DC6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 232620A61B1A3D5F00499DC6 /* LaunchScreen.xib */; };
 		232620B41B1A3D5F00499DC6 /* STRColorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232620B31B1A3D5F00499DC6 /* STRColorsTests.swift */; };
+		232620BE1B1AA63400499DC6 /* STRColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232620BD1B1AA63400499DC6 /* STRColorCell.swift */; };
+		232620C01B1AA81400499DC6 /* STRColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232620BF1B1AA81400499DC6 /* STRColorModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		232620AD1B1A3D5F00499DC6 /* STRColorsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = STRColorsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		232620B21B1A3D5F00499DC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		232620B31B1A3D5F00499DC6 /* STRColorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRColorsTests.swift; sourceTree = "<group>"; };
+		232620BD1B1AA63400499DC6 /* STRColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STRColorCell.swift; sourceTree = "<group>"; };
+		232620BF1B1AA81400499DC6 /* STRColorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STRColorModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				232620A41B1A3D5F00499DC6 /* Images.xcassets */,
 				232620A61B1A3D5F00499DC6 /* LaunchScreen.xib */,
 				232620991B1A3D5F00499DC6 /* Supporting Files */,
+				232620BD1B1AA63400499DC6 /* STRColorCell.swift */,
+				232620BF1B1AA81400499DC6 /* STRColorModel.swift */,
 			);
 			path = STRColors;
 			sourceTree = "<group>";
@@ -216,8 +222,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				232620A01B1A3D5F00499DC6 /* DetailViewController.swift in Sources */,
+				232620BE1B1AA63400499DC6 /* STRColorCell.swift in Sources */,
 				2326209E1B1A3D5F00499DC6 /* MasterViewController.swift in Sources */,
 				2326209C1B1A3D5F00499DC6 /* AppDelegate.swift in Sources */,
+				232620C01B1AA81400499DC6 /* STRColorModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +423,7 @@
 				232620B91B1A3D5F00499DC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		232620BA1B1A3D5F00499DC6 /* Build configuration list for PBXNativeTarget "STRColorsTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +432,7 @@
 				232620BC1B1A3D5F00499DC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
