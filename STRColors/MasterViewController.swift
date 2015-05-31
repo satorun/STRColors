@@ -114,5 +114,10 @@ class MasterViewController: UITableViewController,UITextFieldDelegate {
         self.inputText.resignFirstResponder()
         return true
     }
+
+    override func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        self.inputText.resignFirstResponder()
+    }
+    
 }
 
