@@ -9,10 +9,11 @@
 import UIKit
 
 class MasterViewController: UITableViewController {
-
+    @IBOutlet weak var inputText: UITextField!
+    
     var detailViewController: DetailViewController? = nil
-    var objects = [AnyObject]()
-
+    //var objects = [AnyObject]()
+    let model = STRColorModel()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,9 +42,11 @@ class MasterViewController: UITableViewController {
     }
 
     func insertNewObject(sender: AnyObject) {
-        objects.insert(NSDate(), atIndex: 0)
+        //objects.insert(NSDate(), atIndex: 0)
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        model.insert(self.inputText.text, index: indexPath.row, completion: {
+            self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        })
     }
 
     // MARK: - Segues
@@ -51,9 +54,9 @@ class MasterViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let object = objects[indexPath.row] as! NSDate
+                //let object = objects[indexPath.row] as! NSDate
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = object
+                //controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
@@ -67,21 +70,20 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        //return objects.count
+        return model.count()
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! STRColorCell
 
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
-        cell.backgroundColor = STRColorModel.randomColor()
+//        let object = objects[indexPath.row] as! NSDate
+//        cell.textLabel!.text = object.description
+//        cell.backgroundColor = STRColorModel.randomColor()
+        cell.backgroundColor = model.color(indexPath.row)
         return cell
         
     }
-
-    
-    
     
     // MARK: - Table View Edit
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -91,8 +93,10 @@ class MasterViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            objects.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            //objects.removeAtIndex(indexPath.row)
+            model.remove(indexPath.row , completion: {
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            });
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
