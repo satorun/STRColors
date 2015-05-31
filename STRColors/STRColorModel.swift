@@ -10,7 +10,27 @@ import UIKit
 
 class STRColorModel: NSObject {
     
-    private var colors:[UIColor] = []
+    private var colors:[UIColor] = [] {
+        didSet {
+            
+            var strArray:[String] = []
+            for color in colors {
+                strArray.append(color.stringColor())
+            }
+            
+            let ud = NSUserDefaults.standardUserDefaults()
+            ud.setObject(strArray, forKey: "colors")
+        }
+    }
+    
+    override init() {
+        let ud = NSUserDefaults.standardUserDefaults()
+        if let array = ud.arrayForKey("colors") as? [String] {
+            for str in array {
+                colors.append(STRColorModel.color(str))
+            }
+        }
+    }
     
     class var sharedInstance : STRColorModel {
         struct Static {
