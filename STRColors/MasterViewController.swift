@@ -77,10 +77,10 @@ class MasterViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! STRColorCell
 
-//        let object = objects[indexPath.row] as! NSDate
-//        cell.textLabel!.text = object.description
-//        cell.backgroundColor = STRColorModel.randomColor()
-        cell.backgroundColor = model.color(indexPath.row)
+        let color = model.color(indexPath.row)
+        cell.textLabel?.text = color.stringColor()
+        cell.backgroundColor = color
+        
         return cell
         
     }
@@ -101,7 +101,5 @@ class MasterViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
-
-
 }
 

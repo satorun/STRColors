@@ -16,6 +16,7 @@
 		232620B41B1A3D5F00499DC6 /* STRColorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232620B31B1A3D5F00499DC6 /* STRColorsTests.swift */; };
 		232620BE1B1AA63400499DC6 /* STRColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232620BD1B1AA63400499DC6 /* STRColorCell.swift */; };
 		232620C01B1AA81400499DC6 /* STRColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232620BF1B1AA81400499DC6 /* STRColorModel.swift */; };
+		23A94C151B1B4F7F002EAC56 /* UIColor+STRExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A94C141B1B4F7F002EAC56 /* UIColor+STRExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		232620B31B1A3D5F00499DC6 /* STRColorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRColorsTests.swift; sourceTree = "<group>"; };
 		232620BD1B1AA63400499DC6 /* STRColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STRColorCell.swift; sourceTree = "<group>"; };
 		232620BF1B1AA81400499DC6 /* STRColorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STRColorModel.swift; sourceTree = "<group>"; };
+		23A94C141B1B4F7F002EAC56 /* UIColor+STRExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+STRExtension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				232620991B1A3D5F00499DC6 /* Supporting Files */,
 				232620BD1B1AA63400499DC6 /* STRColorCell.swift */,
 				232620BF1B1AA81400499DC6 /* STRColorModel.swift */,
+				23A94C141B1B4F7F002EAC56 /* UIColor+STRExtension.swift */,
 			);
 			path = STRColors;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				232620A01B1A3D5F00499DC6 /* DetailViewController.swift in Sources */,
+				23A94C151B1B4F7F002EAC56 /* UIColor+STRExtension.swift in Sources */,
 				232620BE1B1AA63400499DC6 /* STRColorCell.swift in Sources */,
 				2326209E1B1A3D5F00499DC6 /* MasterViewController.swift in Sources */,
 				2326209C1B1A3D5F00499DC6 /* AppDelegate.swift in Sources */,
