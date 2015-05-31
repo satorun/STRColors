@@ -8,12 +8,12 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UITableViewController,UITextFieldDelegate {
     @IBOutlet weak var inputText: UITextField!
     
     var detailViewController: DetailViewController? = nil
     //var objects = [AnyObject]()
-    let model = STRColorModel()
+    let model = STRColorModel.sharedInstance
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,6 +34,7 @@ class MasterViewController: UITableViewController {
             let controllers = split.viewControllers
             self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
         }
+        self.inputText.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,6 +47,7 @@ class MasterViewController: UITableViewController {
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         model.insert(self.inputText.text, index: indexPath.row, completion: {
             self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            self.inputText.text = ""
         })
     }
 
@@ -53,10 +55,11 @@ class MasterViewController: UITableViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
+            self.inputText.resignFirstResponder()
+            
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                //let object = objects[indexPath.row] as! NSDate
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                //controller.detailItem = object
+                controller.detailItem = model.color(indexPath.row)
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
@@ -100,6 +103,16 @@ class MasterViewController: UITableViewController {
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
+    }
+    
+    // MARK: - UITextFieldDelegate
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        model.insert(self.inputText.text, index: 0, completion: {
+            self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: .Automatic)
+            self.inputText.text = ""
+        })
+        self.inputText.resignFirstResponder()
+        return true
     }
 }
 

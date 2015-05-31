@@ -12,6 +12,13 @@ class STRColorModel: NSObject {
     
     private var colors:[UIColor] = []
     
+    class var sharedInstance : STRColorModel {
+        struct Static {
+            static let instance : STRColorModel = STRColorModel()
+        }
+        return Static.instance
+    }
+    
     enum InputType {
         case Rgb
         //case Hex
