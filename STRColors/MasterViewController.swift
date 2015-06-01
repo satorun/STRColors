@@ -48,6 +48,7 @@ class MasterViewController: UITableViewController,UITextFieldDelegate {
         model.insert(self.inputText.text, index: indexPath.row, completion: {
             self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
             self.inputText.text = ""
+            self.inputText.resignFirstResponder()
         })
     }
 
